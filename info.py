@@ -58,7 +58,7 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', -1001684512737))
 RQST_LOG_CHANNEL = int(environ.get('RQST_LOG_CHANNEL', -1001684512737))
 
 # Bot Options
-P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
+P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
