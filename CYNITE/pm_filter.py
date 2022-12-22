@@ -1244,8 +1244,7 @@ async def manual_filters(client, message, text=False):
                                 settings = await get_settings(message.chat.id)
                                 if settings['mauto_delete']:
                                     await asyncio.sleep(DELETE_TIME)
-                                    await message.delete()
-                                    await kunal.delete()
+                                    kunal.delete()
 
                         else:
                             button = eval(btn)
@@ -1269,15 +1268,13 @@ async def manual_filters(client, message, text=False):
                             try:
                                 if settings['mauto_delete']:
                                     await asyncio.sleep(DELETE_TIME)
-                                    await message.delete()
                                     await hmm.delete()
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
                                 await save_group_settings(grpid, 'mauto_delete', True)
                                 settings = await get_settings(message.chat.id)
                                 if settings['mauto_delete']:
-                                    await asyncio.sleep(DELETE_TIME)
-                                    await message.delete()
+                                    await asyncio.sleep(DELETE_TIME)                                 
                                     await hmm.delete()
 
                     elif btn == "[]":
@@ -1299,16 +1296,14 @@ async def manual_filters(client, message, text=False):
                                 await auto_filter(client, message)
                         try:
                             if settings['mauto_delete']:
-                                await asyncio.sleep(DELETE_TIME)
-                                await message.delete()
+                                await asyncio.sleep(DELETE_TIME)        
                                 await oto.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
                             await save_group_settings(grpid, 'mauto_delete', True)
                             settings = await get_settings(message.chat.id)
                             if settings['mauto_delete']:
-                                await asyncio.sleep(DELETE_TIME)
-                                await message.delete()
+                                await asyncio.sleep(DELETE_TIME)                            
                                 await oto.delete()
 
                     else:
@@ -1331,15 +1326,13 @@ async def manual_filters(client, message, text=False):
                         try:
                             if settings['mauto_delete']:
                                 await asyncio.sleep(DELETE_TIME)
-                                await message.delete()
                                 await dlt.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
                             await save_group_settings(grpid, 'mauto_delete', True)
                             settings = await get_settings(message.chat.id)
                             if settings['mauto_delete']:
-                                await asyncio.sleep(DELETE_TIME)
-                                await message.delete()
+                                await asyncio.sleep(DELETE_TIME)                     
                                 await dlt.delete()
 
                 except Exception as e:
@@ -1373,7 +1366,6 @@ async def global_filters(client, message, text=False):
                             )
                             await asyncio.sleep(DELETE_TIME)
                             await knd3.delete()
-                            await message.delete()
 
                         else:
                             button = eval(btn)
@@ -1385,8 +1377,7 @@ async def global_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                             await asyncio.sleep(DELETE_TIME)
-                            await knd2.delete()
-                            await message.delete()
+                            await knd2.delete()                          
 
                     elif btn == "[]":
                         knd1 = await client.send_cached_media(
@@ -1396,8 +1387,7 @@ async def global_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(DELETE_TIME)
-                        await knd1.delete()
-                        await message.delete()
+                        await knd1.delete()                      
 
                     else:
                         button = eval(btn)
@@ -1408,8 +1398,7 @@ async def global_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         await asyncio.sleep(DELETE_TIME)
-                        await knd.delete()
-                        await message.delete()
+                        await knd.delete()                       
 
                 except Exception as e:
                     logger.exception(e)
