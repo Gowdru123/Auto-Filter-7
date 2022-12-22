@@ -1135,9 +1135,8 @@ async def advantage_spell_chok(msg):
             InlineKeyboardButton('ɪᴍᴅʙ', url=f"https://imdb.com/find?q={search}")
         ]]           
         k = await msg.reply_photo(photo=SPELL_IMG, caption=script.I_CUDNT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(SPL_DELETE_TIME)
+        await asyncio.sleep(20)
         await k.delete()
-        await msg.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -1169,9 +1168,8 @@ async def advantage_spell_chok(msg):
             InlineKeyboardButton('ɪɴsᴛʀᴜᴄᴛɪᴏɴs', callback_data='splmd')
         ]]           
         k = await msg.reply_photo(photo=SPELL_IMG, caption=script.CUDNT_FND, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(SPL_DELETE_TIME)
+        await asyncio.sleep(20)
         await k.delete()
-        await msg.delete()
         return
     SPELL_CHECK[msg.id] = movielist
     btn = [[
@@ -1194,9 +1192,8 @@ async def advantage_spell_chok(msg):
         caption=(script.CUDNT_FND),
         reply_markup=InlineKeyboardMarkup(btn)
     )
-    await asyncio.sleep(SPL_DELETE_TIME)
+    await asyncio.sleep(20)
     await spell_check_del.delete()
-    await msg.delete()
     return
 
 async def manual_filters(client, message, text=False):
@@ -1236,7 +1233,6 @@ async def manual_filters(client, message, text=False):
                             try:
                                 if settings['mauto_delete']:
                                     await asyncio.sleep(DELETE_TIME)
-                                    await message.delete()
                                     await kunal.delete()
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
